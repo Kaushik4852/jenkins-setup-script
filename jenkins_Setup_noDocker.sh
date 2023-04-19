@@ -36,7 +36,8 @@ sudo systemctl start jenkins
 sudo systemctl enable jenkins
 
 # Wait for Jenkins to start
-until sudo cat /var/log/jenkins/jenkins.log | grep "Jenkins is fully up and running"; do sleep 1; done
+# until sudo cat /var/log/jenkins/jenkins.log | grep "Jenkins is fully up and running"; do sleep 1; done
+while ! curl -s http://localhost:8080/login >/dev/null; do sleep 1; done
 
 # Retrieve initial admin password
 INITIAL_ADMIN_PASSWORD=$(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
