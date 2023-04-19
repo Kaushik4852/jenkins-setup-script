@@ -1,18 +1,6 @@
 #!/bin/bash
-
-cd /usr/local/bin/
-# Download Jenkins install script
-sudo wget https://raw.githubusercontent.com/jenkinsci/docker/master/install.sh
-sudo chmod +x /usr/local/bin/jenkins-install.sh
-
-# Download Jenkins create user script
-sudo wget https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-create-user.sh
-sudo chmod +x /usr/local/bin/jenkins-create-user.sh
-
-# Download Jenkins set password script
-sudo wget https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-set-password.sh
-sudo chmod +x /usr/local/bin/jenkins-set-password.sh
-
+User_name = "Kavi"
+User_Password = "Kavi"
 
 # Update package list
 sudo apt update -y
@@ -76,10 +64,10 @@ sudo /usr/local/bin/install-plugins.sh \
     mailer
 
 # Create admin user
-sudo /usr/local/bin/jenkins-create-user.sh admin $INITIAL_ADMIN_PASSWORD
+java -jar /path/to/jenkins-cli.jar -s http://localhost:8080/ createUser $User_name $INITIAL_ADMIN_PASSWORD
 
 # Change admin password
-sudo /usr/local/bin/jenkins-set-password.sh admin NEW_PASSWORD
+java -jar /path/to/jenkins-cli.jar -s http://localhost:8080/ change-password $User_name $User_Password
 
 # Restart Jenkins
 sudo systemctl restart jenkins
