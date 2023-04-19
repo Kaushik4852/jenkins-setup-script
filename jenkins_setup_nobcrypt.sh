@@ -2,8 +2,8 @@
 
 # Define variables
 CONTAINER_NAME="jenkins"
-JENKINS_ADMIN_USER="admin"
-JENKINS_ADMIN_PASSWORD="your-admin-password"
+JENKINS_ADMIN_USER="Kavi"
+JENKINS_ADMIN_PASSWORD="Kavi"
 JENKINS_PORT=8080
 
 # Pull the latest Jenkins image
