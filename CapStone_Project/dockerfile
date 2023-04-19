@@ -1,0 +1,9 @@
+FROM hshar/webapp
+WORKDIR /var/www/html
+RUN echo "ServerName 127.0.0.1" >> /etc/apache2/apache2.conf
+RUN apt-get update -y
+RUN apt-get install git -y
+RUN git clone https://github.com/Kaushik4852/DevOps_capstone_website
+RUN cp -r ./DevOps_capstone_website/* ./
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
