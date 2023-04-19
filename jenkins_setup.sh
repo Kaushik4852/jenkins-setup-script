@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#install bcrypt
+sudo apt-get install bcrypt
+
 # Define variables
 CONTAINER_NAME="jenkins"
 JENKINS_ADMIN_USER="Kavi"
