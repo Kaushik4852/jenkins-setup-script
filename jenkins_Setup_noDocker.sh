@@ -1,15 +1,16 @@
 #!/bin/bash
 
+cd /usr/local/bin/
 # Download Jenkins install script
-sudo curl -o /usr/local/bin/jenkins-install.sh https://raw.githubusercontent.com/jenkinsci/docker/master/install.sh
+sudo wget https://raw.githubusercontent.com/jenkinsci/docker/master/install.sh
 sudo chmod +x /usr/local/bin/jenkins-install.sh
 
 # Download Jenkins create user script
-sudo curl -o /usr/local/bin/jenkins-create-user.sh https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-create-user.sh
+sudo wget https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-create-user.sh
 sudo chmod +x /usr/local/bin/jenkins-create-user.sh
 
 # Download Jenkins set password script
-sudo curl -o /usr/local/bin/jenkins-set-password.sh https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-set-password.sh
+sudo wget https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-set-password.sh
 sudo chmod +x /usr/local/bin/jenkins-set-password.sh
 
 
