@@ -1,6 +1,6 @@
 #!/bin/bash
-User_name = "Kavi"
-User_Password = "Kavi"
+User_name="Kavi"
+User_Password="Kavi"
 
 # Update package list
 sudo apt update -y
