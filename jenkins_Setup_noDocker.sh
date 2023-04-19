@@ -19,17 +19,15 @@ sudo apt update
 # Install necessary packages
 sudo apt install -y openjdk-11-jdk curl git
 
-# Download and add Jenkins GPG key
-wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+#install jenkins
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
 
-# Add Jenkins repository to sources list
-echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
-
-# Update package list with new repository
-sudo apt update
-
-# Install Jenkins
-sudo apt install -y jenkins
 
 # Start Jenkins service
 sudo systemctl start jenkins
