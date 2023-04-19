@@ -1,6 +1,4 @@
 #!/bin/bash
-User_name="Kavi"
-User_Password="Kavi"
 
 # Update package list
 sudo apt update -y
@@ -34,40 +32,3 @@ INITIAL_ADMIN_PASSWORD=$(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
 # Output initial admin password to console
 echo "Initial admin password: $INITIAL_ADMIN_PASSWORD"
 
-# Install suggested plugins
-sudo /usr/local/bin/install-plugins.sh \
-    git \
-    workflow-aggregator \
-    build-timeout \
-    credentials-binding \
-    timestamper \
-    ws-cleanup \
-    ant \
-    gradle \
-    pipeline-utility-steps \
-    cloudbees-folder \
-    durable-task \
-    junit \
-    matrix-project \
-    ssh-slaves \
-    scm-api \
-    workflow-api \
-    workflow-basic-steps \
-    workflow-cps-global-lib \
-    workflow-durable-task-step \
-    workflow-job \
-    workflow-multibranch \
-    workflow-scm-step \
-    workflow-step-api \
-    workflow-support \
-    email-ext \
-    mailer
-
-# Create admin user
-java -jar /path/to/jenkins-cli.jar -s http://localhost:8080/ createUser $User_name $INITIAL_ADMIN_PASSWORD
-
-# Change admin password
-java -jar /path/to/jenkins-cli.jar -s http://localhost:8080/ change-password $User_name $User_Password
-
-# Restart Jenkins
-sudo systemctl restart jenkins
