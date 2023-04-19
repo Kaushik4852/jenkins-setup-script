@@ -19,7 +19,7 @@ jenkins/jenkins:lts
 while ! curl -s http://localhost:$JENKINS_PORT/login >/dev/null; do sleep 1; done
 
 # Retrieve the Jenkins admin API token
-JENKINS_API_TOKEN=$(sudo docker exec jenkins sh -c "echo \$(cat /var/jenkins_home/secrets/initialAdminPassword)")
+JENKINS_API_TOKEN=$(sudo docker exec $CONTAINER_NAME sh -c "echo \$(cat /var/jenkins_home/secrets/initialAdminPassword)")
 
 # Output Jenkins admin API token to console
 echo "Jenkins admin API token: $JENKINS_API_TOKEN"
