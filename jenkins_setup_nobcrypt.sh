@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Define variables
+CONTAINER_NAME="jenkins"
 JENKINS_ADMIN_USER="admin"
 JENKINS_ADMIN_PASSWORD="your-admin-password"
 JENKINS_PORT=8080
@@ -9,7 +10,7 @@ JENKINS_PORT=8080
 sudo docker pull jenkins/jenkins:lts
 
 # Start the Jenkins container
-sudo docker run -d -p $JENKINS_PORT:$JENKINS_PORT --name jenkins \
+sudo docker run -d -p $JENKINS_PORT:$JENKINS_PORT --name $CONTAINER_NAME \
 -e JENKINS_ADMIN_ID=$JENKINS_ADMIN_USER -e JENKINS_ADMIN_PASSWORD=$JENKINS_ADMIN_PASSWORD \
 -e JENKINS_OPTS="--argumentsRealm.passwd.$JENKINS_ADMIN_USER=$JENKINS_ADMIN_PASSWORD --argumentsRealm.roles.$JENKINS_ADMIN_USER=admin" \
 jenkins/jenkins:lts
